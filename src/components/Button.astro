@@ -1,0 +1,30 @@
+---
+export type Props = {
+  variant?: Variant;
+  url?: string;
+};
+type Variant = "primary" | "secondary" | "tertiary" | "link";
+
+const { url, variant } = Astro.props;
+
+const variantStyle: Record<Variant, string> = {
+  primary: "-mbe-bg -mbe-text",
+  secondary: "bg-transparent mbe-text border-1",
+  tertiary: "bg-transparent mbe-text",
+  link: "bg-transparent mbe-text",
+};
+
+const baseStyle = variantStyle[variant ?? "primary"] + " p-4";
+---
+
+{
+  url ? (
+    <a class:list={[baseStyle, "hover:underline"]} href={url}>
+      <slot />
+    </a>
+  ) : (
+    <button class:list={[baseStyle, "cursor-pointer"]}>
+      <slot />
+    </button>
+  )
+}

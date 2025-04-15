@@ -1,1 +1,44 @@
 @import "tailwindcss";
+
+@theme {
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --font-display: "press-start-2p", ui-monospace, monospace;
+  --font-serif: "Literata Variable", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  /* TODO custom color to suite original MBE pallete. These tailwind defaults will do for now... */
+  --color-mbe-dark: var(--color-zinc-900);
+  --color-mbe-light: var(--color-orange-50);
+  /* --color-mbe-dark-muted: var(--color-blue-600);
+  --color-mbe-light-muted: var(--color-blue-400);
+  --color-mbe-accent-light: var(--color-rose-400);
+  --color-mbe-accent-light-muted: var(--color-rose-300);
+  --color-mbe-accent-dark: var(--color-rose-600);
+  --color-mbe-accent-dark-muted: var(--color-rose-800); */
+}
+
+.mbe-bg {
+  background-color: var(--color-mbe-light);
+  :where(.dark, .dark *) & {
+    background-color: var(--color-mbe-dark);
+  }
+}
+
+.-mbe-bg {
+  background-color: var(--color-mbe-dark);
+  :where(.dark, .dark *) & {
+    background-color: var(--color-mbe-light);
+  }
+}
+
+.mbe-text {
+  color: var(--color-mbe-dark);
+  :where(.dark, .dark *) & {
+    color: var(--color-mbe-light);
+  }
+}
+
+.-mbe-text {
+  color: var(--color-mbe-light);
+  :where(.dark, .dark *) & {
+    color: var(--color-mbe-dark);
+  }
+}

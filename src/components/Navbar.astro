@@ -1,0 +1,36 @@
+---
+import Button from "./Button.astro";
+
+const links = [
+  {
+    url: "https://www.example.com",
+    name: "FOOBAR",
+  },
+  {
+    url: "https://www.example.com",
+    name: "FOOBAR",
+  },
+  {
+    url: "https://www.example.com",
+    name: "FOOBAR",
+  },
+  {
+    url: "https://www.example.com",
+    name: "FOOBAR",
+  },
+  {
+    url: "https://www.example.com",
+    name: "FOOBAR",
+  },
+];
+---
+
+<nav class="flex justify-between">
+  {
+    links.map((link) => (
+      <Button variant="tertiary" url={link.url}>
+        {link.name}
+      </Button>
+    ))
+  }
+</nav>

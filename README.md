@@ -1,3 +1,9 @@
+# Makeup by Ellie
+
+Business website with admin battlestation.
+
+Bootstrapped with Astro, README below.
+
 # Astro Starter Kit: Basics
 
 ```sh
