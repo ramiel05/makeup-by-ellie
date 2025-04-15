@@ -1,0 +1,18 @@
+---
+import Button from "./Button.astro";
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="flex flex-col items-centre space-y-1 p-8 border-t-1 border-t-mbe-dark text-sm">
+  <div class="flex justify-center space-x-4">
+    <Button variant="tertiary" class="p-0">icon_here INSTAGRAM</Button>
+    <Button variant="tertiary" class="p-0">TERMS AND CONDITIONS</Button>
+  </div>
+  <div class="flex space-x-4 justify-center m-2 text-center">
+    <div>Copyright &copy; {currentYear} MAKEUP BY ELLIE.</div>
+    <div>Makeup Artist and Hair Stylist.</div>
+    <div>Melbourne, Australia.</div>
+    <div>All Rights Reserved.</div>
+  </div>
+</footer>

@@ -1,11 +1,14 @@
 ---
+import { cx } from "../utils/cx";
+
 export type Props = {
+  class?: string;
   variant?: Variant;
   url?: string;
 };
 type Variant = "primary" | "secondary" | "tertiary" | "link";
 
-const { url, variant } = Astro.props;
+const { url, variant, class: className } = Astro.props;
 
 const variantStyle: Record<Variant, string> = {
   primary: "-mbe-bg -mbe-text",
@@ -19,11 +22,11 @@ const baseStyle = variantStyle[variant ?? "primary"] + " p-4";
 
 {
   url ? (
-    <a class:list={[baseStyle, "hover:underline"]} href={url}>
+    <a class={cx(baseStyle, "hover:underline", className)} href={url}>
       <slot />
     </a>
   ) : (
-    <button class:list={[baseStyle, "cursor-pointer"]}>
+    <button class={cx(baseStyle, "cursor-pointer", className)}>
       <slot />
     </button>
   )
