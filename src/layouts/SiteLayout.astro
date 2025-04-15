@@ -3,7 +3,8 @@ import Header from "../components/Header.astro";
 import "../styles/global.css";
 ---
 
-<!-- TODO understand meta and other head tag things to maximize SEO --><!doctype html>
+<!-- WARNING all other Layouts should use this as the root element for flex
+ dependencies resulting in expected styling --><!-- TODO understand meta and other head tag things to maximize SEO --><!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -12,9 +13,13 @@ import "../styles/global.css";
     <meta name="generator" content={Astro.generator} />
     <title>Makeup by Ellie</title>
   </head>
-  <body class="mbe-bg">
+  <!-- create and use a font class -->
+  <body class="mbe-bg flex flex-col min-h-screen">
     <Header />
-    <slot />
+    <main class="flex flex-col flex-grow">
+      <slot />
+    </main>
+    <!-- <Footer class="mt-48" /> -->
   </body>
 </html>
 

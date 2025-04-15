@@ -1,0 +1,18 @@
+---
+import Heading1 from "../components/typography/Heading1.astro";
+import SiteLayout from "./SiteLayout.astro";
+
+export type Props = {
+  title: string;
+};
+const { title } = Astro.props;
+---
+
+<SiteLayout>
+  <div class="flex flex-col items-center max-w-xl w-full self-center space-y-10">
+    <Heading1>
+      {title}
+    </Heading1>
+    <slot />
+  </div>
+</SiteLayout>
