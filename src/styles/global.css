@@ -1,9 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
 
+@variant dark (&:where(.dark, .dark *));
+
+@font-face {
+  font-family: "Voga";
+  src: url("/fonts/Voga-Medium.woff2") format("woff2"), url("/fonts/Voga-Medium.woff") format("woff"),
+    url("/fonts/Voga-Medium.ttf") format("truetype"), url("/fonts/Voga-Medium.otf") format("opentype");
+}
+
 @theme {
-  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
-  --font-display: "press-start-2p", ui-monospace, monospace;
-  --font-serif: "Literata Variable", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-boujee: "Voga", "Suranna", serif;
+  --font-classy: "Montserrat", sans-serif;
   /* TODO custom color to suite original MBE pallete. These tailwind defaults will do for now... */
   --color-mbe-dark: var(--color-zinc-900);
   --color-mbe-light: var(--color-orange-50);

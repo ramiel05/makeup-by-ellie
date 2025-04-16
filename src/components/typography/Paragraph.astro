@@ -1,0 +1,11 @@
+---
+export type Props = {
+  centre?: boolean;
+};
+
+const { centre } = Astro.props;
+---
+
+<p class:list={["font-classy", centre ? "text-center" : ""]}>
+  <slot />
+</p>
