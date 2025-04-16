@@ -1,5 +1,83 @@
 ---
-import SiteLayout from "../../layouts/SiteLayout/SiteLayout.astro";
+import StandardPageLayout from "../../layouts/StandardPageLayout.astro";
+import Service, { type Props as ServiceProps } from "./_service.astro";
+
+const services: ServiceProps[] = [
+  {
+    imageUrl: "https://placehold.co/200x320",
+    title: "Event and Special Occasion Makeup",
+    description: `A full face makeup application which includes a thorough consultation, skin prep and complimentary lashes.`,
+    cost: 150,
+    duration: 60,
+    disclaimer: `Appointment are held at my home studio in Altona Meadows.
+      
+        Travel is available for bookings of 4 or more. (Travel costs apply)
+      `,
+  },
+  {
+    imageUrl: "https://placehold.co/200x320",
+    title: "Event and Special Occasion Hair and Makeup",
+    description: `A full face makeup application which includes a thorough consultation, skin prep and complimentary lashes.
+
+        Simple hairstyling including, curls/waves and textured/messy buns.
+
+        Please note this is an in-studio service only.
+      `,
+    cost: 250,
+    duration: 120,
+    disclaimer: `Appointments are held at my home studio in Altona Meadows. 
+        Travel is not available for this service.
+
+        A $50 non refundable, non transferable booking fee is required to secure your booking.
+      `,
+  },
+  {
+    imageUrl: "https://placehold.co/200x320",
+    title: "Bridal Trial Makeup",
+    description: `A full face makeup application, lux skin prep and complimentary lashes.
+
+      Bridal trials include an extra thorough consultation and in depth conversation about your wedding and bridal look. 
+      Advise on skin preparation/tanning/waxing leading up to your wedding day
+
+      Extra time is taken to ensure you feel like the best version of yourself on your special day.
+      A face chart is created to ensure your bridal look can be recreated exactly on your wedding day.
+      `,
+    cost: 180,
+    duration: 90,
+    disclaimer: `Appointments are held at my home studio in Altona Meadows. 
+
+        A $50 non refundable, non transferable booking fee is required to secure your booking.
+      `,
+  },
+  {
+    imageUrl: "https://placehold.co/200x320",
+    title: "Bridal Makeup",
+    description: `Ellie would love to be part of your special day, please get in touch for availability.
+
+        Bride - 180
+        Bridesmaids - 150
+        Mother of the Bride/Groom - 150
+        Guests - 150
+        Flower Girls (10 years and under) - 50
+
+        - Prices listed include complementary custom individual lashes.
+        - A 15% surcharge will be applied for start times of 6.30am or earlier.
+        - Public holiday bookings will incur a 15% surcharge.
+        - Travel costs apply and will be quoted on enquiry.
+        - A minimum booking of 4 people required.
+      `,
+    cost: null,
+    duration: null,
+    disclaimer: `- Prices listed include complementary custom individual lashes.
+        - A 15% surcharge will be applied for start times of 6.30am or earlier.
+        - Public holiday bookings will incur a 15% surcharge.
+        - Travel costs apply and will be quoted on enquiry.
+        - A minimum booking of 4 people required.
+      `,
+  },
+];
 ---
 
-<SiteLayout><div class="bg-emerald-400 text-amber-50">PAGE PLACEHOLDER</div></SiteLayout>
+<StandardPageLayout title="SERVICES">
+  {services.map((service) => <Service {...service} />)}
+</StandardPageLayout>

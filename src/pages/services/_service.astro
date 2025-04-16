@@ -1,0 +1,35 @@
+---
+import { Image } from "astro:assets";
+import Heading2 from "../../components/typography/Heading2.astro";
+import Paragraph from "../../components/typography/Paragraph.astro";
+
+export type Props = {
+  imageUrl: string;
+  title: string;
+  description: string;
+  cost: number | null;
+  duration: number | null;
+  disclaimer: string;
+};
+
+const { imageUrl, title, description, cost, duration, disclaimer } = Astro.props;
+---
+
+<div class="flex space-x-12 items-start">
+  <Image src={imageUrl} alt="person wearing makeup" width="200" height="320" />
+  <div class="flex flex-col space-y-6">
+    <Heading2>{title}</Heading2>
+    <Paragraph>
+      {description}
+    </Paragraph>
+    {
+      (cost || duration) && (
+        <div class="flex flex-col space-y-1">
+          {cost && <Paragraph>&#36;{cost}</Paragraph>}
+          {duration && <Paragraph>{duration} minutes</Paragraph>}
+        </div>
+      )
+    }
+    <Paragraph>{disclaimer}</Paragraph>
+  </div>
+</div>
