@@ -1,5 +1,37 @@
 ---
-import SiteLayout from "../../layouts/SiteLayout/SiteLayout.astro";
+import StandardPageLayout from "../../layouts/StandardPageLayout.astro";
+
+import Faq, { type Props as FaqProps } from "./_Faq.astro";
+
+const faqs: FaqProps[] = [
+  {
+    question: `What brands do you use?`,
+    answer: `A range of high-end professional brands. Some of these include Nars, Hourglass, Laura Mercier, Bobbi Brown, MAC, Charlotte Tilbury and many more.`,
+  },
+  {
+    question: `Do I need to have a trial for bridal makeup?`,
+    answer: `A trial is recommended for all bridal clients, this will give you the chance to trial your desired makeup look and trial the products on your skin.
+
+        A trial will also give you confidence so you can relax on your wedding day knowing the exact result you will attain.
+
+        However if you really do not wish to have a trial or it's not possible, you will not be pressured into having one.
+      `,
+  },
+  {
+    question: `Can I book you for my whole wedding day?`,
+    answer: `Absolutely, I'm often requested to come back before reception for touch ups or change of look. I can also attend your photo session or you can request me for the full day to make sure everything stays picture perfect.
+
+        Contact me for quotes.
+      `,
+  },
+  {
+    question: `Will my makeup last all day?`,
+    answer: `I have tried and tested many products and ask many questions to ensure I'm using the right products for your skin type and to ensure longevity. 
+
+        So long as you don't touch your face throughout the day your makeup will stay put. The only thing you may wish to touch up would be your lips. 
+      `,
+  },
+];
 ---
 
-<SiteLayout><div class="bg-emerald-400 text-amber-50">PAGE PLACEHOLDER</div></SiteLayout>
+<StandardPageLayout title="FAQ"> {faqs.map((faq) => <Faq {...faq} />)}</StandardPageLayout>

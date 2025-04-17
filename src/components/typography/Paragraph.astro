@@ -1,11 +1,14 @@
 ---
+import { cx } from "../../utils/cx";
+
 export type Props = {
   centre?: boolean;
+  class?: string;
 };
 
-const { centre } = Astro.props;
+const { centre, class: classNames } = Astro.props;
 ---
 
-<p class:list={["font-classy", centre ? "text-center" : ""]}>
+<p class={cx(["font-classy", centre ? "text-center" : ""], classNames)}>
   <slot />
 </p>
