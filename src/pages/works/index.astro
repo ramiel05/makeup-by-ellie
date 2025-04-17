@@ -1,5 +1,25 @@
 ---
-import SiteLayout from "../../layouts/SiteLayout/SiteLayout.astro";
+import StandardPageLayout from "../../layouts/StandardPageLayout.astro";
+import Work, { type Props as WorkProps } from "./_Work.astro";
+
+// TODO temp random orientation code to test masonry display ---\/\/\/
+const dimension = () => (Math.random() > 0.5 ? 640 : 480);
+// TODO ---^^^
+
+const works: Omit<WorkProps, "imageId">[] = [
+  { imageUrl: `https://placehold.co/${dimension()}x${dimension()}` },
+  { imageUrl: `https://placehold.co/${dimension()}x${dimension()}` },
+  { imageUrl: `https://placehold.co/${dimension()}x${dimension()}` },
+  { imageUrl: `https://placehold.co/${dimension()}x${dimension()}` },
+  { imageUrl: `https://placehold.co/${dimension()}x${dimension()}` },
+  { imageUrl: `https://placehold.co/${dimension()}x${dimension()}` },
+  { imageUrl: `https://placehold.co/${dimension()}x${dimension()}` },
+  { imageUrl: `https://placehold.co/${dimension()}x${dimension()}` },
+];
 ---
 
-<SiteLayout><div class="bg-emerald-400 text-amber-50">PAGE PLACEHOLDER</div></SiteLayout>
+<StandardPageLayout title="PORTFOLIO">
+  <div class="columns-4 gap-1 space-y-1">
+    {works.map((work, i) => <Work {...work} imageId={i.toString(10)} />)}
+  </div>
+</StandardPageLayout>

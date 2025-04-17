@@ -1,0 +1,37 @@
+---
+const { id, open } = Astro.props;
+---
+
+<mbe-modal class="px-4 py-2 bg-blue-600 text-white rounded">
+  <button id="open">
+    {open}
+  </button>
+  <dialog
+    id={id}
+    class="fixed left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-md shadow-lg backdrop:bg-red-500/10"
+  >
+    <div class="p-6">
+      <slot name="main" />
+      <form method="dialog" class="mt-4">
+        <slot name="close" />
+      </form>
+    </div>
+  </dialog>
+</mbe-modal>
+
+<script>
+  // create a Web Component for button that opens the modal
+  // how and why: https://docs.astro.build/en/guides/client-side-scripts/#web-components-with-custom-elements
+  class MbeModal extends HTMLElement {
+    connectedCallback() {
+      const openButton = this.querySelector("button#open")!;
+      const dialog = this.querySelector("dialog")!;
+
+      openButton.addEventListener("click", () => {
+        dialog.showModal();
+      });
+    }
+  }
+
+  customElements.define("mbe-modal", MbeModal);
+</script>
