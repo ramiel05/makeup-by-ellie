@@ -10,12 +10,10 @@ export type Props = {
 const { imageUrl, imageId } = Astro.props;
 ---
 
-<Image class="border-8 border-orange-700" src={imageUrl} alt="person wearing makeup" inferSize={true} />
 <Modal id=`work-${imageId}` open="open image modal">
-  <main slot="main">
-    <p>Some extra content you would like here</p>
-    <hr />
-    <img width="60" height="80" src="https://placehold.co/50x50" alt="Placeholder" />
-  </main>
+  <Image slot="open" class="border-8 border-orange-700" src={imageUrl} alt="person wearing makeup" inferSize={true} />
+  <div slot="content" class="max-w-2xl">
+    <Image class="border-8 border-orange-700" src={imageUrl} alt="person wearing makeup" inferSize={true} />
+  </div>
   <button slot="close">Close modal</button>
 </Modal>

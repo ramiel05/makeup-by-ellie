@@ -2,16 +2,16 @@
 const { id, open } = Astro.props;
 ---
 
-<mbe-modal class="px-4 py-2 bg-blue-600 text-white rounded">
+<mbe-modal>
   <button id="open">
-    {open}
+    <slot name="open" />
   </button>
   <dialog
     id={id}
     class="fixed left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-md shadow-lg backdrop:bg-red-500/10"
   >
     <div class="p-6">
-      <slot name="main" />
+      <slot name="content" />
       <form method="dialog" class="mt-4">
         <slot name="close" />
       </form>
