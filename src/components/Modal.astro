@@ -1,5 +1,5 @@
 ---
-const { id, open } = Astro.props;
+const { id } = Astro.props;
 ---
 
 <mbe-modal>
@@ -10,11 +10,11 @@ const { id, open } = Astro.props;
     id={id}
     class="fixed left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-md shadow-lg backdrop:bg-red-500/10"
   >
-    <div class="p-6">
-      <slot name="content" />
-      <form method="dialog" class="mt-4">
-        <slot name="close" />
+    <div class="p-4 pt-0 flex flex-col">
+      <form method="dialog" class="self-end p-2">
+        <button slot="close" class="text-4xl">&#215;</button>
       </form>
+      <slot name="content" />
     </div>
   </dialog>
 </mbe-modal>

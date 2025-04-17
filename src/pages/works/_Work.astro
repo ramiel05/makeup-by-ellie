@@ -13,7 +13,6 @@ const { imageUrl, imageId } = Astro.props;
 <Modal id=`work-${imageId}` open="open image modal">
   <Image slot="open" class="border-8 border-orange-700" src={imageUrl} alt="person wearing makeup" inferSize={true} />
   <div slot="content" class="max-w-2xl">
-    <Image class="border-8 border-orange-700" src={imageUrl} alt="person wearing makeup" inferSize={true} />
+    <Image class="border-8 border-orange-700 max-h-full" src={imageUrl} alt="person wearing makeup" inferSize={true} />
   </div>
-  <button slot="close">Close modal</button>
 </Modal>
