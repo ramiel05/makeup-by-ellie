@@ -1,8 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
 
-@variant dark (&:where(.dark, .dark *));
-
 @font-face {
   font-family: "Voga";
   src: url("/fonts/Voga-Medium.woff2") format("woff2"), url("/fonts/Voga-Medium.woff") format("woff"),
@@ -15,13 +13,15 @@
   /* TODO custom color to suite original MBE pallete. These tailwind defaults will do for now... */
   --color-mbe-dark: var(--color-zinc-900);
   --color-mbe-light: var(--color-orange-50);
-  /* --color-mbe-dark-muted: var(--color-blue-600);
-  --color-mbe-light-muted: var(--color-blue-400);
-  --color-mbe-accent-light: var(--color-rose-400);
-  --color-mbe-accent-light-muted: var(--color-rose-300);
-  --color-mbe-accent-dark: var(--color-rose-600);
-  --color-mbe-accent-dark-muted: var(--color-rose-800); */
+  --color-mbe-dark-muted: var(--color-zinc-600);
+  --color-mbe-light-muted: var(--color-orange-400);
+  --color-mbe-accent-dark: var(--color-zinc-600);
+  --color-mbe-accent-light: var(--color-orange-400);
+  --color-mbe-accent-dark-muted: var(--color-zinc-800);
+  --color-mbe-accent-light-muted: var(--color-orange-300);
 }
+
+// TODO not going to have dark mode, so remove use of these classes and just use the colors directly
 
 .mbe-bg {
   background-color: var(--color-mbe-light);
@@ -49,4 +49,22 @@
   :where(.dark, .dark *) & {
     color: var(--color-mbe-dark);
   }
+}
+
+.mbe-text {
+  color: var(--color-mbe-dark);
+  :where(.dark, .dark *) & {
+    color: var(--color-mbe-light);
+  }
+}
+
+.-mbe-text {
+  color: var(--color-mbe-light);
+  :where(.dark, .dark *) & {
+    color: var(--color-mbe-dark);
+  }
+}
+
+.mbe-input {
+  @apply font-classy border-mbe-accent-dark border-1;
 }

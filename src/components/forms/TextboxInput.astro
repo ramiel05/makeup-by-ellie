@@ -1,0 +1,13 @@
+---
+import Label from "./Label.astro";
+
+export type Props = {
+  name: string;
+};
+const { name } = Astro.props;
+
+const inputName = name;
+---
+
+<Label label={inputName} />
+<textarea name={inputName} rows="6" cols="40" class="mbe-input"></textarea>

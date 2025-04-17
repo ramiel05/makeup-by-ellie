@@ -1,0 +1,13 @@
+---
+import { kebabToFirstLetterUpperCase } from "../../utils/format-string";
+
+export type Props = {
+  label: string;
+};
+
+const { label } = Astro.props;
+
+const displayLabel = kebabToFirstLetterUpperCase(label);
+---
+
+<label class="font-classy font-medium mb-1">{displayLabel}</label>

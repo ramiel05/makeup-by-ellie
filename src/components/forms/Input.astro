@@ -1,0 +1,14 @@
+---
+import Label from "./Label.astro";
+
+export type Props = {
+  name: string;
+  type: "text" | "number" | "date" | "tel";
+};
+const { name, type } = Astro.props;
+
+const inputName = name;
+---
+
+<Label label={inputName} />
+<input type={type} name={inputName} class="mbe-input" />
