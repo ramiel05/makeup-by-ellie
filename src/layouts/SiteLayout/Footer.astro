@@ -1,6 +1,7 @@
 ---
 import { SiInstagram } from "@icons-pack/react-simple-icons";
 import Button from "../../components/Button.astro";
+import Paragraph from "../../components/typography/Paragraph.astro";
 
 const currentYear = new Date().getFullYear();
 ---
@@ -14,9 +15,9 @@ const currentYear = new Date().getFullYear();
     <Button variant="tertiary" class="p-0">TERMS AND CONDITIONS</Button>
   </div>
   <div class="flex space-x-2 justify-center m-2 text-center">
-    <div>Copyright &copy; {currentYear} MAKEUP BY ELLIE.</div>
-    <div>Makeup Artist and Hair Stylist.</div>
-    <div>Melbourne, Australia.</div>
-    <div>All Rights Reserved.</div>
+    <Paragraph>Copyright &copy; {currentYear} MAKEUP BY ELLIE.</Paragraph>
+    <Paragraph>Makeup Artist and Hair Stylist.</Paragraph>
+    <Paragraph>Melbourne, Australia.</Paragraph>
+    <Paragraph>All Rights Reserved.</Paragraph>
   </div>
 </footer>
