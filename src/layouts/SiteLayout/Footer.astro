@@ -6,18 +6,20 @@ import Paragraph from "../../components/typography/Paragraph.astro";
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="flex flex-col items-centre space-y-1 px-36 py-8 border-t-1 border-t-mbe-dark text-sm self-center">
-  <div class="flex justify-center space-x-6">
-    <div class="flex space-x-2 items-center">
-      <SiInstagram color="black" size={16} />
-      <Button variant="tertiary" class="p-0"> INSTAGRAM</Button>
+<footer class="flex flex-col items-centre px-36 text-sm self-center">
+  <div class="border-t-1 border-t-mbe-dark space-y-1 py-8">
+    <div class="flex justify-center space-x-6">
+      <div class="flex space-x-2 items-center">
+        <SiInstagram color="black" size={16} />
+        <Button variant="tertiary" class="p-0"> INSTAGRAM</Button>
+      </div>
+      <Button variant="tertiary" class="p-0">TERMS AND CONDITIONS</Button>
     </div>
-    <Button variant="tertiary" class="p-0">TERMS AND CONDITIONS</Button>
-  </div>
-  <div class="flex space-x-2 justify-center m-2 text-center">
-    <Paragraph>Copyright &copy; {currentYear} MAKEUP BY ELLIE.</Paragraph>
-    <Paragraph>Makeup Artist and Hair Stylist.</Paragraph>
-    <Paragraph>Melbourne, Australia.</Paragraph>
-    <Paragraph>All Rights Reserved.</Paragraph>
+    <div class="flex space-x-2 justify-center m-2 text-center">
+      <Paragraph>Copyright &copy; {currentYear} MAKEUP BY ELLIE.</Paragraph>
+      <Paragraph>Makeup Artist and Hair Stylist.</Paragraph>
+      <Paragraph>Melbourne, Australia.</Paragraph>
+      <Paragraph>All Rights Reserved.</Paragraph>
+    </div>
   </div>
 </footer>
