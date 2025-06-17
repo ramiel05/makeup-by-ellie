@@ -1,25 +1,40 @@
 ---
+export const prerender = false;
+
 import { Image } from "astro:assets";
+import { actions } from "astro:actions";
 import DropdownInput from "../../components/forms/DropdownInput.astro";
 import Input from "../../components/forms/Input.astro";
 import StandardPageLayout from "../../layouts/StandardPageLayout.astro";
 import TextboxInput from "../../components/forms/TextboxInput.astro";
+import Button from "../../components/Button.astro";
+
+const result = Astro.getActionResult(actions.sendContact);
+if (result) {
+  if (!result.error) {
+    return Astro.redirect("/contact-success");
+  } else {
+    return Astro.redirect("/contact-failure");
+  }
+}
 ---
 
 <StandardPageLayout title="CONTACT">
   <div class="flex space-x-10">
-    <form class="flex flex-col space-y-4 w-2xl">
+    <form method="POST" action={actions.sendContact} class="flex flex-col space-y-4 w-2xl">
       <Input name="name" type="text" />
       <Input name="phone" type="text" />
       <Input name="email" type="text" />
       <Input name="event-date" type="date" />
-      <DropdownInput name="foobar" />
-      <Input name="service" type="number" />
+      <DropdownInput name="service" />
       <Input name="total-people-makeup" type="number" />
-      <Input name="total-people-hair" type="text" />
+      <Input name="total-people-hair" type="number" />
+      <!-- TODO make this a time -->
       <Input name="time-to-finish-by" type="text" />
+      <!-- TODO make this a selectable address this where it is aware of addresses -->
       <Input name="address-for-service" type="text" />
       <TextboxInput name="additional-information" />
+      <Button type="submit">Send</Button>
     </form>
     <Image src="https://placehold.co/400x600" alt="person wearing makeup" inferSize />
   </div>

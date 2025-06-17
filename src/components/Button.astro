@@ -5,10 +5,11 @@ export type Props = {
   class?: string;
   variant?: Variant;
   url?: string;
+  type?: "submit" | "reset" | "button" | null | undefined;
 };
 type Variant = "primary" | "secondary" | "tertiary" | "link";
 
-const { url, variant, class: className } = Astro.props;
+const { url, variant, class: className, type } = Astro.props;
 
 const variantStyle: Record<Variant, string> = {
   primary: "-mbe-bg -mbe-text",
@@ -26,7 +27,7 @@ const baseStyle = variantStyle[variant ?? "primary"] + " py-3 px-5 font-classy";
       <slot />
     </a>
   ) : (
-    <button class={cx(baseStyle, "cursor-pointer", className)}>
+    <button class={cx(baseStyle, "cursor-pointer", className)} type={type ?? "submit"}>
       <slot />
     </button>
   )
